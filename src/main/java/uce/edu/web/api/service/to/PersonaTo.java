@@ -1,49 +1,26 @@
-package uce.edu.web.api.repository.modelo;
+package uce.edu.web.api.service.to;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+public class PersonaTo  implements Serializable{
 
-
-@Entity
-@Table(name = "persona")
-public class Persona {
-
-    @Id
-    @GeneratedValue(generator = "seq_persona", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "seq_persona", sequenceName = "seq_persona", allocationSize = 1)
-    @Column(name = "pers_id")
     private Integer id;
-
-    @Column(name = "pers_nombre")
     private String nombre;
-
-    @Column(name = "pers_apellido")
     private String apellido;
-
-    @Column(name = "pers_fecha_nacimiento")
     private LocalDateTime fechaNacimiento;
 
+
     //CONSTRUCTORES
-    public Persona() {
+    public PersonaTo() {
     }
 
-    public Persona(Integer id, String nombre, String apellido, LocalDateTime fechaNacimiento) {
+    public PersonaTo(Integer id, String nombre, String apellido, LocalDateTime fechaNacimiento) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
     }
-
-    
-
-
     //SET y GET
     public Integer getId() {
         return id;
@@ -71,5 +48,5 @@ public class Persona {
     }
 
     
-    
+
 }

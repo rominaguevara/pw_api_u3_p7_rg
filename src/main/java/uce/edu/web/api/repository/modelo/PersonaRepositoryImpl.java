@@ -4,14 +4,24 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+import uce.edu.web.api.repository.modelo.Persona;
 
 @Transactional
 @ApplicationScoped
-public class PersonaRepositoryImpl implements IPersonaRepository{
-    
+public class PersonaRepositoryImpl implements IPersonaRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Override
+    public Persona buscarPorId(Integer id) {
+
+        return this.entityManager.find(Persona.class, id);
+    }
+
+    @Override
+    public void insertar(Persona persona) {
+        this.entityManager.persist(persona);
+    }
 
     @Override
     public void actualizar(Persona persona) {
@@ -19,24 +29,7 @@ public class PersonaRepositoryImpl implements IPersonaRepository{
     }
 
     @Override
-    public Persona burcarPorId(Integer id) {
-        this.entityManager.find(Persona.class, id);
-        return null;
-    }
-
-    @Override
-    public void insertar(Persona persona) {
-        this.entityManager.persist(persona);        
-    }
-
-    
-
-    @Override
     public void eliminar(Integer id) {
-        this.entityManager.remove(this.burcarPorId(id));        
+        this.entityManager.remove(this.buscarPorId(id));
     }
-
-    
-
-    
 }

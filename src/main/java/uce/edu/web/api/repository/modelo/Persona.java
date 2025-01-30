@@ -10,7 +10,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
-
 @Entity
 @Table(name = "persona")
 public class Persona {
@@ -30,7 +29,7 @@ public class Persona {
     @Column(name = "pers_fecha_nacimiento")
     private LocalDateTime fechaNacimiento;
 
-    //CONSTRUCTORES
+    // CONSTRUCTORES
     public Persona() {
     }
 
@@ -41,35 +40,37 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    
-
-
-    //SET y GET
+    // SET y GET
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public String getApellido() {
         return apellido;
     }
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
     public LocalDateTime getFechaNacimiento() {
         return fechaNacimiento;
     }
+
     public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    
-    
 }

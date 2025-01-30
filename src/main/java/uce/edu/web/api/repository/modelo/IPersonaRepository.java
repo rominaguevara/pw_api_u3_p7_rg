@@ -4,7 +4,7 @@ import uce.edu.web.api.repository.modelo.Persona;
 
 public interface IPersonaRepository {
 
-    public Persona burcarPorId(Integer id);
+    public Persona buscarPorId(Integer id);
 
     public void insertar(Persona persona);
 

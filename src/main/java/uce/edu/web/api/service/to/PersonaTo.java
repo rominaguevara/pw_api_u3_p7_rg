@@ -3,25 +3,20 @@ package uce.edu.web.api.service.to;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class PersonaTo  implements Serializable{
-
+public class PersonaTo implements Serializable {
     private Integer id;
     private String nombre;
     private String apellido;
     private LocalDateTime fechaNacimiento;
-
-
-    //CONSTRUCTORES
+    // SET GET
     public PersonaTo() {
     }
-
     public PersonaTo(Integer id, String nombre, String apellido, LocalDateTime fechaNacimiento) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
     }
-    //SET y GET
     public Integer getId() {
         return id;
     }
@@ -46,7 +41,4 @@ public class PersonaTo  implements Serializable{
     public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
-    
-
 }

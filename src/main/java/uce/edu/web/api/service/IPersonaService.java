@@ -3,7 +3,7 @@ package uce.edu.web.api.service;
 import uce.edu.web.api.service.to.PersonaTo;
 
 public interface IPersonaService {
-    public PersonaTo burcarPorId(Integer id);
+    public PersonaTo buscarPorId(Integer id);
 
     public void guardar(PersonaTo persona);
 

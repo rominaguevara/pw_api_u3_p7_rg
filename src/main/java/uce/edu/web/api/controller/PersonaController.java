@@ -7,6 +7,7 @@ import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Response;
 import uce.edu.web.api.service.IPersonaService;
 import uce.edu.web.api.service.to.PersonaTo;
 
@@ -14,6 +15,7 @@ import uce.edu.web.api.service.to.PersonaTo;
 public class PersonaController {
     @Inject
     private IPersonaService iPersonaService;
+   
     @GET
     @Path("/buscar")
     public PersonaTo buscarPorId() {
@@ -48,4 +50,5 @@ public class PersonaController {
         Integer id = 1;
         this.iPersonaService.borrar(id);
     }
+
 }

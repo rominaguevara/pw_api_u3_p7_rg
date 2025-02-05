@@ -12,32 +12,31 @@ import uce.edu.web.api.service.to.PersonaTo;
 public class PersonaServiceImpl implements IPersonaService {
     @Inject
     private IPersonaRepository ipersonaRepository;
+    
     private Function<Persona, PersonaTo> mapTo = p -> {
         PersonaTo pTo = new PersonaTo(p.getId(), p.getNombre(), p.getApellido(), p.getFechaNacimiento());
         return pTo;
     };
+    
     private Function<PersonaTo, Persona> mapPersona = pTo -> {
         Persona p = new Persona(pTo.getId(), pTo.getNombre(), pTo.getApellido(), pTo.getFechaNacimiento());
         return p;
     };
-
+    
     @Override
     public PersonaTo buscarPorId(Integer id) {
         Persona per = this.ipersonaRepository.buscarPorId(id);
         return this.mapTo.apply(per);
     }
-
     @Override
     public void guardar(PersonaTo persona) {
         this.ipersonaRepository.insertar(this.mapPersona.apply(persona));
     }
-
     @Override
     public void actualizar(PersonaTo persona) {
         Persona per = this.mapPersona.apply(persona);
         this.ipersonaRepository.actualizar(per);
     }
-
     @Override
     public void borrar(Integer id) {
         this.ipersonaRepository.eliminar(id);

@@ -1,7 +1,5 @@
 package uce.edu.web.api.repository.modelo;
 
-import uce.edu.web.api.repository.modelo.Persona;
-
 public interface IPersonaRepository {
 
     public Persona buscarPorId(Integer id);

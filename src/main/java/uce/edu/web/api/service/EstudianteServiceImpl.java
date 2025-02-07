@@ -1,13 +1,12 @@
 package uce.edu.web.api.service;
 
+import java.util.List;
 import java.util.function.Function;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import uce.edu.web.api.repository.modelo.Estudiante;
 import uce.edu.web.api.repository.modelo.IEstudianteRepository;
-import uce.edu.web.api.repository.modelo.Persona;
 import uce.edu.web.api.service.to.EstudianteTo;
-import uce.edu.web.api.service.to.PersonaTo;
 
 @ApplicationScoped
 public class EstudianteServiceImpl implements IEstudianteService {
@@ -29,6 +28,21 @@ public class EstudianteServiceImpl implements IEstudianteService {
     public EstudianteTo buscarPorId(Integer id) {
         Estudiante est = this.iestudianteRepository.buscarId(id);
         return this.mapTo.apply(est);
+    }
+
+    @Override
+    public List<EstudianteTo> buscarTodos() {
+        return this.iestudianteRepository.buscarTodos().stream().map(this.mapTo).toList();
+    }
+
+    @Override
+    public List<EstudianteTo> buscarPorNombre(String nombre) {
+        return this.iestudianteRepository.buscarPorNombre(nombre).stream().map(this.mapTo).toList();
+    }
+
+    @Override
+    public List<EstudianteTo> buscarPorNombreEdad(String nombre, Integer edad) {
+        return this.iestudianteRepository.buscarPorNombreEdad(nombre, edad).stream().map(this.mapTo).toList();
     }
 
     @Override

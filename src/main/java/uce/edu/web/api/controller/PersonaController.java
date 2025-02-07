@@ -1,5 +1,7 @@
 package uce.edu.web.api.controller;
 
+import java.util.List;
+
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -8,6 +10,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
 import uce.edu.web.api.service.IPersonaService;
 import uce.edu.web.api.service.to.PersonaTo;
 
@@ -20,6 +23,25 @@ public class PersonaController {
     @Path("/{id}")
     public PersonaTo buscarPorId(@PathParam("id") Integer id) {
         return this.iPersonaService.buscarPorId(id);
+    }
+
+
+     @GET
+     @Path("")
+     public List<PersonaTo> buscarTodos() {
+         return this.iPersonaService.buscarTodos();
+    }
+
+    @GET
+    @Path("/porNombre")
+    public List<PersonaTo> buscarPorNombre(@QueryParam("nombre") String nombre) {
+        return this.iPersonaService.buscarPorNombre(nombre);
+    }
+
+    @GET
+    @Path("/porNombreApellido")
+    public List<PersonaTo> buscarPorNombreApellido(@QueryParam("nombre") String nombre, @QueryParam("apellido") String apellido) {
+        return this.iPersonaService.buscarPorNombre(nombre);
     }
     
     @POST

@@ -1,8 +1,16 @@
 package uce.edu.web.api.repository.modelo;
 
+import java.util.List;
+
 public interface IPersonaRepository {
 
     public Persona buscarPorId(Integer id);
+
+    public List<Persona> buscarTodos();
+
+    public List<Persona> buscarPorNombre(String nombre);
+
+    public List<Persona> buscarPorNombreApellido(String nombre, String apellido);
 
     public void insertar(Persona persona);
 

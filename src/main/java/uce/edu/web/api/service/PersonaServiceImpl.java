@@ -27,9 +27,12 @@ public class PersonaServiceImpl implements IPersonaService {
     @Override
     public PersonaTo buscarPorId(Integer id) {
         Persona per = this.ipersonaRepository.buscarPorId(id);
+        if(per == null){
+            System.out.println("Nulo");
+            return null;
+        }
         return this.mapTo.apply(per);
     }
-
 
     @Override
     public List<PersonaTo> buscarTodos() {

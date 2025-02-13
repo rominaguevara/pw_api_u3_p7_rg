@@ -22,6 +22,7 @@ public class PersonaController {
     @Inject
     private IPersonaService iPersonaService;
    
+    //Taller 33
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_XML)

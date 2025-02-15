@@ -24,7 +24,7 @@ public class PersonaTo implements Serializable {
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
     }
-    @XmlElement
+    //@XmlElement
     public Integer getId() {
         return id;
     }
@@ -32,7 +32,7 @@ public class PersonaTo implements Serializable {
         this.id = id;
     }
 
-    @XmlElement
+    //@XmlElement
     public String getNombre() {
         return nombre;
     }
@@ -40,7 +40,7 @@ public class PersonaTo implements Serializable {
         this.nombre = nombre;
     }
 
-    @XmlElement
+   // @XmlElement
     public String getApellido() {
         return apellido;
     }
@@ -48,8 +48,8 @@ public class PersonaTo implements Serializable {
         this.apellido = apellido;
     }
 
-    @XmlElement
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    //@XmlElement
+    //@XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     public LocalDateTime getFechaNacimiento() {
         return fechaNacimiento;
     }
